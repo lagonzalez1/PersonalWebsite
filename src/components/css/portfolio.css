@@ -1,0 +1,13 @@
+html {
+    background-color: #191c1f; 
+}
+
+.main {
+    background-color: #191c1f;
+}
+
+.head {
+    padding-top: 50px;
+    align-items: left !important;
+    text-align: left;
+}
