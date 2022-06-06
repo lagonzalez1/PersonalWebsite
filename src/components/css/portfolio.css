@@ -38,3 +38,8 @@ html {
     font-family: 'Roboto Mono' !important;
     font-size: small;
 }
+
+canvas {
+    height: 300px;
+    width: 300px;
+}

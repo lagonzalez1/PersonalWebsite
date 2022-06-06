@@ -17,13 +17,12 @@ export default function Portfolio() {
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGL1Renderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
 
 
     // Adding a cube to scene
     const geometry = new THREE.BoxGeometry(1, 1, 1);
     const material = new THREE.MeshBasicMaterial({ color: '#4287f5' });
-    const cube = new THREE.Mesh(geometry, material)
+    const cube = new THREE.Mesh(geometry, material);
     scene.add(cube)
     camera.position.z = 5;
 
@@ -33,6 +32,12 @@ export default function Portfolio() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
+
+        const setCanvas = () => {
+            var canvas_body = document.getElementById("p_canvas");
+            canvas_body.appendChild(renderer.domElement);
+        }
+       
         const getData = async () => {
             const { data: response } = await axios.get(link);
             try {
@@ -46,7 +51,7 @@ export default function Portfolio() {
             } 
         }  
         getData()
-        
+        setCanvas()
 
     }, [])
 
@@ -54,8 +59,15 @@ export default function Portfolio() {
     const fetchData = () => {
         setLoadingData(true);
         loadObject()
-    }
 
+    }
+    // JS and react might be casing problems.
+    // npm install three @react-three/fiber
+    // Will need ^ npm to run THREE and React together.
+    // https://docs.pmnd.rs/react-three-fiber/getting-started/introduction#is-it-slower-than-plain-three.js?
+
+
+    // GLB image can be used to animate
     const loadObject = () => {
         requestAnimationFrame(loadObject);
         cube.rotation.x += 0.01;
@@ -138,7 +150,7 @@ export default function Portfolio() {
                     </Col>
 
                     <Col>
-
+                        <canvas id="p_canvas"/>
                     </Col>
 
                 </Row>

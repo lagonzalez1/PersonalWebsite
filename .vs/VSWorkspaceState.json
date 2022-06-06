@@ -1,6 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\css",
+    "\\src\\components\\Loader",
+    "\\src\\components\\Portfolio"
   ],
+  "SelectedNode": "\\src\\components\\Portfolio\\Portfolio.js",
   "PreviewInSolutionExplorer": false
 }
